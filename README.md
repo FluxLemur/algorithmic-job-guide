@@ -56,7 +56,7 @@ def get_job():
     celebrate()
 ```
 
-## The Search Problem
+## Search
 ```python
 job_sources = [
     "recommendations from friends",
@@ -79,7 +79,7 @@ def find_jobs():
     return jobs_found
 ```
 
-## Applying
+## Apply
 ```python
 info_sources = [
     "resume",
@@ -102,7 +102,7 @@ def apply_for(job):
     return move_forward
 ```
 
-## Interviewing
+## Interview
 ```python
 def do_general_interview_prep():
     # Google this
@@ -122,7 +122,7 @@ def interview_for(job):
     return True
 ```
 
-## Evaluating Offers
+## Evaluate
 ```python
 def negotiate(offers):
     for offer in offers:
@@ -156,7 +156,7 @@ def offer_evaluation_metric(job):
     return job.total_compensation
 ```
 
-## Accepting
+## Accept
 ```python
 def reject_offer(job):
     courteously_respond_to_your_recruiter(job)
