@@ -1,9 +1,10 @@
-# An Algorithmic Guide to Getting a Job
+# An Algorithmic Guide to Landing a Job
 There are many guides that offer advice and tactics for how to get a job.
 
 This guide is different. It offers advice in Python. No BS, no filler, purely
-algorithmic. Note that proper Pythonic style (TODO insert PEP 8 link) is at times
-sacrificed for readability.
+algorithmic. Note that [proper Pythonic
+style](https://www.python.org/dev/peps/pep-0008/) is at times sacrificed for
+readability.
 
 Contributions are gladly welcomed!
 
@@ -11,7 +12,7 @@ Contributions are gladly welcomed!
 def get_job():
     """Gets you a job.
 
-    The algorithm is broken into 3 basic steps:
+    The algorithm is broken into 5 basic steps:
     1. search
     2. apply
     3. interview
@@ -22,7 +23,7 @@ def get_job():
     # search
     candidate_jobs = find_jobs()
 
-    # applying
+    # apply
     update_your_info()  # resume, LinkedIn, website, etc.
     interviewing_at = []
     for job in candidate_jobs:
@@ -30,7 +31,7 @@ def get_job():
         if success:
             interviewing_at.append(job)
 
-    # interviewing
+    # interview
     do_general_interview_prep()
     offers = []
     for job in interviewing_at:
@@ -38,14 +39,15 @@ def get_job():
         if interview_for(job):
             offers.append(job)
 
-    # evaluation
+    # evaluate
     negotiate(offers)
     offers.sort(key=job_evaluation_metric, reverse=True)
 
-    # accepting
+    # accept
     for job in offers[1:]:
-        reject(job)
-    accept(offers[0])  # !!
+        reject_offer(job)
+    accept_offer(offers[0])  # !!
+    celebrate()
 ```
 
 ## The Search Problem
@@ -98,12 +100,13 @@ def apply_for(job):
 ```python
 def do_general_interview_prep():
     # Google this
+    # e.g. for software: Leetcode, HackerRank, Cracking the coding interview
     pass
 
 def prepare_for_interview(job):
     research_company(job.company)
     prepare_questions_about(job)
-    look_on_glassdoor_for(job)
+    read_glassdoor_reviews(job)
 
 def interview_for(job):
     """Interview for a job, and returns success status."""
@@ -128,7 +131,7 @@ def job_evaluation_metric(job):
     return 0
 ```
 
-## Accept
+## Accepting
 ```python
 def reject(job):
     # do so kindly!
