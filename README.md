@@ -25,23 +25,29 @@ def get_job():
 
     # apply
     update_your_info()  # resume, LinkedIn, website, etc.
-    interviewing_at = []
+    interviewing_at = set()
     for job in candidate_jobs:
         success = apply_for(job)
         if success:
-            interviewing_at.append(job)
+            interviewing_at.add(job)
 
     # interview
     do_general_interview_prep()
-    offers = []
+    offers = set()
     for job in interviewing_at:
         prepare_for_interview(job)
         if interview_for(job):
-            offers.append(job)
+            offers.add(job)
 
     # evaluate
+    to_remove = set()
+    for job in offers:
+        is_acceptable = eval_offer(job):
+        if not is_acceptable:
+            to_remove.add(job)
+    offers -= to_remove
     negotiate(offers)
-    offers.sort(key=job_evaluation_metric, reverse=True)
+    offers.sort(key=offer_evaluation_metric, reverse=True)
 
     # accept
     for job in offers[1:]:
@@ -122,10 +128,28 @@ def negotiate(offers):
     for offer in offers:
         notify_and_negotiate(offer.recruiting_contact, offers)
 
-def job_evaluation_metric(job):
-    """Returns an integer representing your interest in `job`.
+MAX_NUM_OFFER_AMENDMENTS = 3
+def eval_offer(job):
+    """Evaluates offer (possibly modifying it).
 
-    Larger value => greater interest
+    Returns whether offer is acceptable.
+    """
+    read_offer(job)
+    understand_offer(job)
+    carefully_understand_offer(job)
+
+    count = MAX_NUM_OFFER_AMENDMENTS
+    while not offer_is_acceptable(job):
+        if count <= 0:
+            return False
+        amend_offer(job)
+        count -= 1
+    return True
+
+def offer_evaluation_metric(job):
+    """Returns an integer representing your interest in your offer for `job`.
+
+    Larger value implies greater interest.
     """
     # TODO this is generally personal, implement yourself!
     # As a very rough heuristic, use total compensation
