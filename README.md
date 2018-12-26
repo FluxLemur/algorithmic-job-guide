@@ -128,7 +128,8 @@ def job_evaluation_metric(job):
     Larger value => greater interest
     """
     # TODO this is generally personal, implement yourself!
-    return 0
+    # As a very rough heuristic, use total compensation
+    return job.total_compensation
 ```
 
 ## Accepting
