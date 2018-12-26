@@ -50,9 +50,9 @@ def get_job():
     offers.sort(key=offer_evaluation_metric, reverse=True)
 
     # accept
+    accept_offer(offers[0])  # !!
     for job in offers[1:]:
         reject_offer(job)
-    accept_offer(offers[0])  # !!
     celebrate()
 ```
 
@@ -158,11 +158,12 @@ def offer_evaluation_metric(job):
 
 ## Accept
 ```python
-def reject_offer(job):
-    courteously_respond_to_your_recruiter(job)
-
 def accept_offer(job):
     carefully_reread_offer(job)
     assert eval_offer(job)
     sign_offer(job)
+
+def reject_offer(job):
+    courteously_respond_to_your_recruiter(job)
 ```
+- Note, an offer should be accepted before others are rejected.
