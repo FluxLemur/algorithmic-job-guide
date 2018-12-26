@@ -158,11 +158,11 @@ def offer_evaluation_metric(job):
 
 ## Accepting
 ```python
-def reject(job):
-    # do so kindly!
-    pass
+def reject_offer(job):
+    courteously_respond_to_your_recruiter(job)
 
-def accept(job):
+def accept_offer(job):
+    carefully_reread_offer(job)
+    assert eval_offer(job)
     sign_offer(job)
-    celebrate()  # !
 ```
